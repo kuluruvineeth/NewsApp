@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id "org.jetbrains.kotlin.kapt"
     id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs'
 }
 
 android {
@@ -39,6 +40,9 @@ android {
                     "-Xjvm-default=all",
             ]
         }
+    }
+    buildFeatures{
+        viewBinding true
     }
 }
 
@@ -79,5 +83,10 @@ dependencies {
     //Hilt
     implementation "com.google.dagger:hilt-android:2.38.1"
     kapt "com.google.dagger:hilt-compiler:2.38.1"
+
+    //Navigation
+    def nav_version = "2.5.1"
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
 }
